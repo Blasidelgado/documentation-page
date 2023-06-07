@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Bootstrap | Layout from prototype to production in minutes</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>
+            <h1>Bootstrap Layout</h1>
+        </header>
+            <ul>
+                <li><a href="#Breakpoints" class="nav-link">Breakpoints</a></li>
+                <li><a href="#Containers" class="nav-link">Containers</a></li>
+                <li><a href="#Grid" class="nav-link">Grid</a></li>
+                <li><a href="#Columns" class="nav-link">Columns</a></li>
+                <li><a href="#Gutters" class="nav-link">Gutters</a></li>
+                <li><a href="#Utilities" class="nav-link">Utilities</a></li>
+                <li><a href="#Z-index" class="nav-link">Z-index</a></li>
+                <li><a href="#CSS_Grid" class="nav-link">CSS Grid</a></li>
+            </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Breakpoints">
+            <header>Breakpoints</header>
+            <div class="lead">
+                <p>Breakpoints are customizable widths that determine how your responsive layout behaves across device or viewport sizes in Bootstrap.</p>
+            </div>
+            <article>
+                <h2>Core Concepts</h2>
+                <ul>
+                    <li><strong>Breakpoints are the building blocks of responsive design.</strong> Use them to control when your layout can be adapted at a particular viewport or device size.</li>
+                    <li><strong>Use media queries to architect your CSS by breakpoint.</strong> Media queries are a feature of CSS that allow you to conditionally apply styles based on a set of browser and operating system parameters. We most commonly use min-width in our media queries.</li>
+                    <li><strong>Mobile first, responsive design is the goal.</strong> Bootstrap’s CSS aims to apply the bare minimum of styles to make a layout work at the smallest breakpoint, and then layers on styles to adjust that design for larger devices. This optimizes your CSS, improves rendering time, and provides a great experience for your visitors.</li>
+                </ul>
+                <h2>Available breakpoints</h2>
+                <p>Bootstrap includes six default breakpoints, sometimes referred to as grid tiers, for building responsively. These breakpoints can be customized if you’re using our source Sass files.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Breakpoint</th>
+                            <th>Class infix</th>
+                            <th>Dimensions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Extra small</td>
+                            <td><em>None</em></td>
+                            <td>&lt;576px</td>
+                        </tr>
+                        <tr>
+                            <td>Small</td>
+                            <td><code>sm</code></td>
+                            <td>≥576px</td>
+                        </tr>
+                        <tr>
+                            <td>Medium</td>
+                            <td><code>md</code></td>
+                            <td>≥768px</td>
+                        </tr>
+                        <tr>
+                            <td>Large</td>
+                            <td><code>lg</code></td>
+                            <td>≥992px</td>
+                        </tr>
+                        <tr>
+                            <td>Extra large</td>
+                            <td><code>xl</code></td>
+                            <td>≥1200px</td>
+                        </tr>
+                        <tr>
+                            <td>Extra extra large</td>
+                            <td><code>xxl</code></td>
+                            <td>≥1400px</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Each breakpoint was chosen to comfortably hold containers whose widths are multiples of 12. Breakpoints are also representative of a subset of common device sizes and viewport dimensions—they don’t specifically target every use case or device. Instead, the ranges provide a strong and consistent foundation to build on for nearly any device.</p>
+            </article>
+        </section>
+        <section class="main-section" id="Containers">
+            <header>Containers</header>
+            <div class="lead">
+                <p>Containers are a fundamental building block of Bootstrap that contain, pad, and align your content within a given device or viewport.</p>
+            </div>
+            <article>
+                <h2>How they work</h2>
+                <p>Containers are the most basic layout element in Bootstrap and are <strong>required when using our default grid system</strong>. Containers are used to contain, pad, and (sometimes) center the content within them. While containers <em>can</em> be nested, most layouts do not require a nested container.</p>
+                <p>Bootstrap comes with three different containers:</p>
+                <ul>
+                    <li><code>.container</code>, which sets a <code>max-width</code> at each responsive breakpoint</li>
+                    <li><code>.container-{breakpoint}</code>, which is <code>width: 100%</code> until the specified breakpoint</li>
+                    <li><code>.container-fluid</code>, which is <code>width: 100%</code> at all breakpoints</li>
+                </ul>
+                <p>The table below illustrates how each container’s <code>max-width</code> compares to the original <code>.container</code> and <code>.container-fluid</code> across each breakpoint.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Extra small<div class="fw-normal">&lt;576px</div></th>
+                                <th>Small<div class="fw-normal">≥576px</div></th>
+                                <th>Medium<div class="fw-normal">≥768px</div></th>
+                                <th>Large<div class="fw-normal">≥992px</div></th>
+                                <th>X-Large<div class="fw-normal">≥1200px</div></th>
+                                <th>XX-Large<div class="fw-normal">≥1400px</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.container</code></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td>540px</td>
+                                <td>720px</td>
+                                <td>960px</td>
+                                <td>1140px</td>
+                                <td>1320px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-sm</code></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td>540px</td>
+                                <td>720px</td>
+                                <td>960px</td>
+                                <td>1140px</td>
+                                <td>1320px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-md</code></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td>720px</td>
+                                <td>960px</td>
+                                <td>1140px</td>
+                                <td>1320px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-lg</code></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td>960px</td>
+                                <td>1140px</td>
+                                <td>1320px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-xl</code></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td>1140px</td>
+                                <td>1320px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-xxl</code></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td>1320px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-fluid</code></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                                <td><span class="text-muted">100%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </article>
+        </section>
+        <section class="main-section" id="Grid">
+            <header>Grid</header>
+            <div class="lead">
+                <p>Use our powerful mobile-first flexbox grid to build layouts of all shapes and sizes thanks to a twelve column system, six default responsive tiers, Sass variables and mixins, and dozens of predefined classes.</p>
+            </div>
+            <article>
+                <h2>Example</h2>
+                <p>Bootstrap’s grid system uses a series of containers, rows, and columns to layout and align content. It’s built with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">flexbox</a> and is fully responsive. Below is an example and an in-depth explanation for how the grid system comes together.</p>
+                <!-- HTML Code, DO NOT change the code below-->
+<pre><code>&lt;div class="container text-center"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col"&gt;
+            Column
+        &lt;/div&gt;
+        &lt;div class="col"&gt;
+            Column
+        &lt;/div&gt;
+        &lt;div class="col"&gt;
+            Column
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;    </code></pre>
+                <!-- End HTML Code -->
+                <p>The above example creates three equal-width columns across all devices and viewports using our predefined grid classes. Those columns are centered in the page with the parent <code>.container</code>.</p>
+                <h2>How it works</h2>
+                <p>Breaking it down, here’s how the grid system comes together:</p>
+                <ul>
+                    <li>
+                    <p><strong>Our grid supports <a href="/docs/5.3/layout/breakpoints/">six responsive breakpoints</a>.</strong>  Breakpoints are based on <code>min-width</code> media queries, meaning they affect that breakpoint and all those above it (e.g., <code>.col-sm-4</code> applies to <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, and <code>xxl</code>). This means you can control container and column sizing and behavior by each breakpoint.</p>
+                    </li>
+                    <li>
+                    <p><strong>Containers center and horizontally pad your content.</strong> Use <code>.container</code> for a responsive pixel width, <code>.container-fluid</code> for <code>width: 100%</code> across all viewports and devices, or a responsive container (e.g., <code>.container-md</code>) for a combination of fluid and pixel widths.</p>
+                    </li>
+                    <li>
+                    <p><strong>Rows are wrappers for columns.</strong> Each column has horizontal <code>padding</code> (called a gutter) for controlling the space between them. This <code>padding</code> is then counteracted on the rows with negative margins to ensure the content in your columns is visually aligned down the left side. Rows also support modifier classes to <a href="#row-columns">uniformly apply column sizing</a> and <a href="/docs/5.3/layout/gutters/">gutter classes</a> to change the spacing of your content.</p>
+                    </li>
+                    <li>
+                    <p><strong>Columns are incredibly flexible.</strong> There are 12 template columns available per row, allowing you to create different combinations of elements that span any number of columns. Column classes indicate the number of template columns to span (e.g., <code>col-4</code> spans four). <code>width</code>s are set in percentages so you always have the same relative sizing.</p>
+                    </li>
+                    <li>
+                    <p><strong>Gutters are also responsive and customizable.</strong> <a href="/docs/5.3/layout/gutters/">Gutter classes are available</a> across all breakpoints, with all the same sizes as our <a href="/docs/5.3/utilities/spacing/">margin and padding spacing</a>. Change horizontal gutters with <code>.gx-*</code> classes, vertical gutters with <code>.gy-*</code>, or all gutters with <code>.g-*</code> classes. <code>.g-0</code> is also available to remove gutters.</p>
+                    </li>
+                    <li>
+                    <p><strong>Sass variables, maps, and mixins power the grid.</strong> If you don’t want to use the predefined grid classes in Bootstrap, you can use our <a href="#sass">grid’s source Sass</a> to create your own with more semantic markup. We also include some CSS custom properties to consume these Sass variables for even greater flexibility for you.</p>
+                    </li>
+                    </ul>
+            </article>
+        </section>
+        <section class="main-section" id="Columns">
+            <header>Columns</header>
+            <div class="lead">
+                <p>Learn how to modify columns with a handful of options for alignment, ordering, and offsetting thanks to our flexbox grid system. Plus, see how to use column classes to manage widths of non-grid elements.</p>
+            </div>
+            <article>
+                <h2 id="how-they-work">How they work</h2>
+                <ul>
+                    <li>
+                    <p><strong>Columns build on the grid’s flexbox architecture.</strong> Flexbox means we have options for changing individual columns and <a href="/docs/5.3/layout/grid/#row-columns">modifying groups of columns at the row level</a>. You choose how columns grow, shrink, or otherwise change.</p>
+                    </li>
+                    <li>
+                    <p><strong>When building grid layouts, all content goes in columns.</strong> The hierarchy of Bootstrap’s grid goes from <a href="/docs/5.3/layout/containers/">container</a> to row to column to your content. On rare occasions, you may combine content and column, but be aware there can be unintended consequences.</p>
+                    </li>
+                    <li>
+                    <p><strong>Bootstrap includes predefined classes for creating fast, responsive layouts.</strong> With <a href="/docs/5.3/layout/breakpoints/">six breakpoints</a> and a dozen columns at each grid tier, we have dozens of classes already built for you to create your desired layouts. This can be disabled via Sass if you wish.</p>
+                    </li>
+                    </ul>
+            </article>
+        </section>
+        <section class="main-section" id="Gutters">
+            <header>Gutters</header>
+            <div class="lead">
+                <p>Gutters are the padding between your columns, used to responsively space and align content in the Bootstrap grid system.</p>
+            </div>
+            <article>
+                <h2>How they work</h2>
+                <ul>
+                    <li>
+                    <p><strong>Gutters are the gaps between column content, created by horizontal <code>padding</code>.</strong> We set <code>padding-right</code> and <code>padding-left</code> on each column, and use negative <code>margin</code> to offset that at the start and end of each row to align content.</p>
+                    </li>
+                    <li>
+                    <p><strong>Gutters start at <code>1.5rem</code> (<code>24px</code>) wide.</strong> This allows us to match our grid to the <a href="/docs/5.3/utilities/spacing/">padding and margin spacers</a> scale.</p>
+                    </li>
+                    <li>
+                    <p><strong>Gutters can be responsively adjusted.</strong> Use breakpoint-specific gutter classes to modify horizontal gutters, vertical gutters, and all gutters.</p>
+                    </li>
+                    </ul>
+            </article>
+        </section>
+        <section class="main-section" id="Utilities">
+            <header>Utilities</header>
+            <div class="lead">
+                <p>For faster mobile-friendly and responsive development, Bootstrap includes dozens of utility classes for showing, hiding, aligning, and spacing content.</p>
+            </div>
+            <article>
+                <h2 id="changing-display">Changing <code>display</code></h2>
+                <p>Use our <a href="/docs/5.3/utilities/display/">display utilities</a> for responsively toggling common values of the <code>display</code> property. Mix it with our grid system, content, or components to show or hide them across specific viewports.</p>
+                <h2 id="flexbox-options">Flexbox options</h2>
+                <p>Bootstrap is built with flexbox, but not every element’s <code>display</code> has been changed to <code>display: flex</code> as this would add many unnecessary overrides and unexpectedly change key browser behaviors. Most of <a href="/docs/5.3/components/alerts/">our components</a> are built with flexbox enabled.</p>
+                <p>Should you need to add <code>display: flex</code> to an element, do so with <code>.d-flex</code> or one of the responsive variants (e.g., <code>.d-sm-flex</code>). You’ll need this class or <code>display</code> value to allow the use of our extra <a href="/docs/5.3/utilities/flex/">flexbox utilities</a> for sizing, alignment, spacing, and more.</p>
+                <h2 id="margin-and-padding">Margin and padding</h2>
+                <p>Use the <code>margin</code> and <code>padding</code> <a href="/docs/5.3/utilities/spacing/">spacing utilities</a> to control how elements and components are spaced and sized. Bootstrap includes a six-level scale for spacing utilities, based on a <code>1rem</code> value default <code>$spacer</code> variable. Choose values for all viewports (e.g., <code>.me-3</code> for <code>margin-right: 1rem</code> in LTR), or pick responsive variants to target specific viewports (e.g., <code>.me-md-3</code> for <code>margin-right: 1rem</code> —in LTR— starting at the <code>md</code> breakpoint).</p>
+                <h2 id="toggle-visibility">Toggle <code>visibility</code></h2>
+                <p>When toggling <code>display</code> isn’t needed, you can toggle the <code>visibility</code> of an element with our <a href="/docs/5.3/utilities/visibility/">visibility utilities</a>. Invisible elements will still affect the layout of the page, but are visually hidden from visitors.</p>
+            </article>
+        </section>
+        <section class="main-section" id="Z-index">
+            <header>Z-index</header>
+            <div class="lead">
+                <p>While not a part of Bootstrap’s grid system, z-indexes play an important part in how our components overlay and interact with one another.</p>
+            </div>
+            <article>
+                <p>Several Bootstrap components utilize <code>z-index</code>, the CSS property that helps control layout by providing a third axis to arrange content. We utilize a default z-index scale in Bootstrap that’s been designed to properly layer navigation, tooltips and popovers, modals, and more.</p>
+                <p>These higher values start at an arbitrary number, high and specific enough to ideally avoid conflicts. We need a standard set of these across our layered components—tooltips, popovers, navbars, dropdowns, modals—so we can be reasonably consistent in the behaviors. There’s no reason we couldn’t have used <code>100</code>+ or <code>500</code>+.</p>
+                <p>We don’t encourage customization of these individual values; should you change one, you likely need to change them all.</p>
+                <!-- HTML Code, DO NOT change the code below-->
+<pre><code>$zindex-dropdown:                   1000;
+
+$zindex-sticky:                     1020;
+
+$zindex-fixed:                      1030;
+
+$zindex-offcanvas-backdrop:         1040;
+
+$zindex-offcanvas:                  1045;
+
+$zindex-modal-backdrop:             1050;
+
+$zindex-modal:                      1055;
+
+$zindex-popover:                    1070;
+
+$zindex-tooltip:                    1080;
+
+$zindex-toast:                      1090;</code></pre>
+                <!-- End HTML Code -->
+                <p>To handle overlapping borders within components (e.g., buttons and inputs in input groups), we use low single digit <code>z-index</code> values of <code>1</code>, <code>2</code>, and <code>3</code> for default, hover, and active states. On hover/focus/active, we bring a particular element to the forefront with a higher <code>z-index</code> value to show their border over the sibling elements.</p>
+            </article>
+        </section>
+        <section class="main-section" id="CSS_Grid">
+            <header>CSS Grid</header>
+            <div class="lead">
+                <p>Learn how to enable, use, and customize our alternate layout system built on CSS Grid with examples and code snippets.</p>
+            </div>
+            <article>
+                <p>Bootstrap’s default grid system represents the culmination of over a decade of CSS layout techniques, tried and tested by millions of people. But, it was also created without many of the modern CSS features and techniques we’re seeing in browsers like the new CSS Grid.</p>
+                <h2>How it works</h2>
+                <p>With Bootstrap 5, we’ve added the option to enable a separate grid system that’s built on CSS Grid, but with a Bootstrap twist. You still get classes you can apply on a whim to build responsive layouts, but with a different approach under the hood.</p>
+                <ul>
+                    <li>
+                    <p><strong>CSS Grid is opt-in.</strong> Disable the default grid system by setting <code>$enable-grid-classes: false</code> and enable the CSS Grid by setting <code>$enable-cssgrid: true</code>. Then, recompile your Sass.</p>
+                    </li>
+                    <li>
+                    <p><strong>Replace instances of <code>.row</code> with <code>.grid</code>.</strong> The <code>.grid</code> class sets <code>display: grid</code> and creates a <code>grid-template</code> that you build on with your HTML.</p>
+                    </li>
+                    <li>
+                    <p><strong>Replace <code>.col-*</code> classes with <code>.g-col-*</code> classes.</strong> This is because our CSS Grid columns use the <code>grid-column</code> property instead of <code>width</code>.</p>
+                    </li>
+                    <li>
+                    <p><strong>Columns and gutter sizes are set via CSS variables.</strong> Set these on the parent <code>.grid</code> and customize however you want, inline or in a stylesheet, with <code>--bs-columns</code> and <code>--bs-gap</code>.</p>
+                    </li>
+                </ul>
+                <p>In the future, Bootstrap will likely shift to a hybrid solution as the <code>gap</code> property has achieved nearly full browser support for flexbox.</p>
+                <h2>Key Differences</h2>
+                <p>Compared to the default grid system:</p>
+                <ul>
+                    <li>
+                    <p>Flex utilities don’t affect the CSS Grid columns in the same way.</p>
+                    </li>
+                    <li>
+                    <p>Gaps replaces gutters. The <code>gap</code> property replaces the horizontal <code>padding</code> from our default grid system and functions more like <code>margin</code>.</p>
+                    </li>
+                    <li>
+                    <p>As such, unlike <code>.rows</code>, <code>.grids</code> have no negative margins and margin utilities cannot be used to change the grid gutters. Grid gaps are applied horizontally and vertically by default. See the <a href="#customizing">customizing section</a> for more details.</p>
+                    </li>
+                    <li>
+                    <p>Inline and custom styles should be viewed as replacements for modifier classes (e.g., <code>style="--bs-columns: 3;"</code> vs <code>class="row-cols-3"</code>).</p>
+                    </li>
+                    <li>
+                    <p>Nesting works similarly, but may require you to reset your column counts on each instance of a nested <code>.grid</code>. See the <a href="#nesting">nesting section</a> for details.</p>
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
